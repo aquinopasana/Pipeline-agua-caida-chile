@@ -14,3 +14,4 @@ Un pipeline de datos automatizado y contenerizado para la extracción, transform
                                             (SQLAlchemy / Load)
                                                    ▼
  [ Power BI / Dashboard ] <──(Port 5432)── [ PostgreSQL Container ]
+![Dashboard de Power BI](imagenes/PBi agua caída.png)
