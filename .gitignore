@@ -1,0 +1,15 @@
+# Entornos virtuales de Python
+venv/
+.venv/
+env/
+
+# Archivos de configuración con contraseñas o credenciales
+.env
+
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Archivos pesados o temporales de Docker/DB si los guardaste localmente
+*.log
+*.sqlite3

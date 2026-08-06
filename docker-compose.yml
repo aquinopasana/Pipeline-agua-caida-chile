@@ -1,0 +1,36 @@
+services:
+  # Servicio 1: Base de Datos PostgreSQL
+  postgres_db:
+    image: postgres:15-alpine
+    container_name: contenedor_postgres_clima
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Servicio 2: Aplicación ETL en Python
+  etl_app:
+    build: .
+    container_name: contenedor_etl_clima
+    env_file:
+      - .env
+    environment:
+      # Cuando corren dentro de la misma red de Docker, el host de la BD es el nombre del servicio
+      POSTGRES_HOST: postgres_db
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+    driver: local
