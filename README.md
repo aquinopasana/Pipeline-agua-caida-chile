@@ -1,3 +1,4 @@
+<img width="1065" height="365" alt="PBi agua caída" src="https://github.com/user-attachments/assets/03588cb6-b508-41cb-b1dc-834743f579b8" />
 # 🌧️ Pipeline ETL de Precipitación Meteorológica (Open-Meteo & PostgreSQL)
 
 Un pipeline de datos automatizado y contenerizado para la extracción, transformación y carga (ETL) de datos históricos de precipitación diaria (agua caída en `mm`) desde la API de **Open-Meteo**, almacenándolos en una base de datos relacional **PostgreSQL** mediante **Docker Compose** para su posterior consumo en herramientas de analítica como **Power BI**.
